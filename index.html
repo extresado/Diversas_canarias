@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BajadaSegura.info</title>
+        <!-- Título principal de la página (importante para SEO) -->
+    <title>Bajada Segura - Proyecto de Asociación Canarias DIVERSAS</title>
+
+    <!-- 
+    =================================================================
+    METADATOS DE OPEN GRAPH (OG) - Para WhatsApp, Facebook, LinkedIn, etc.
+    =================================================================
+    -->
+
+    <!-- Título que se mostrará al compartir -->
+    <meta property="og:title" content="Bajada Segura - Un proyecto de Asociación Canarias DIVERSAS" />
+    
+    <!-- Tipo de contenido (usualmente "website" para la página principal) -->
+    <meta property="og:type" content="website" />
+    
+    <!-- La URL canónica (la dirección principal) de tu sitio web -->
+    <meta property="og:url" content="https://bajadasegura.info" />
+    
+    <!-- URL de la imagen que quieres que se muestre (IMPORTANTE: Debe ser una URL absoluta, ej: https://...) -->
+    <!-- REEMPLAZA ESTA URL por la de tu logo o imagen principal. Tamaño recomendado: 1200x630px -->
+    <meta property="og:image" content="https://placehold.co/1200x630/D9008C/FFFFFF?text=Bajada+Segura" />
+    
+    <!-- Descripción breve del proyecto (1-2 frases) -->
+    <meta property="og:description" content="Infórmate sobre el proyecto Bajada Segura de la Asociación Canarias DIVERSAS. Trabajamos por la diversidad y la seguridad." />
+    
+    <!-- Nombre de tu sitio web -->
+    <meta property="og:site_name" content="Bajada Segura" />
+    
+    <!-- Idioma -->
+    <meta property="og:locale" content="es_ES" />
+
+    <!-- 
+    =================================================================
+    METADATOS DE TWITTER CARD (Para cuando se comparte en Twitter/X)
+    =================================================================
+    -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://bajadasegura.info">
+    <meta name="twitter:title" content="Bajada Segura - Un proyecto de Asociación Canarias DIVERSAS">
+    <meta name="twitter:description" content="Infórmate sobre el proyecto Bajada Segura de la Asociación Canarias DIVERSAS. Trabajamos por la diversidad y la seguridad.">
+    <!-- REEMPLAZA ESTA URL por la de tu logo o imagen principal (la misma que og:image) -->
+    <meta name="twitter:image" content="1000025194.png">
+
+
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Definición de colores neón */
+        :root {
+            --neon-pink: #FF00FF;
+            --neon-red: #FF3300; /* Naranja/Rojo urgente */
+            --neon-blue: #00FFFF;
+            --neon-green: #39FF14;
+            --neon-purple: #9D00FF;
+            --font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            background-color: #000000;
+            color: #f0f0f0;
+            font-family: var(--font-family);
+            display: flex;
+            align-items: flex-start; /* Alinea al inicio */
+            justify-content: flex-start;
+            min-height: 100vh;
+            padding-top: 1.5rem; /* Espacio superior (aprox 24px) */
+            box-sizing: border-box;
+            /* overflow: hidden; */ /* Se quita para permitir el scroll si el menú es largo */
+            position: relative;
+        }
+
+        /* Textura de ruido digital "crudo" */
+        body::after {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cfilter id='n' x='0' y='0'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='1' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23n)' opacity='0.02'/%3E%3C/svg%3E");
+            opacity: 0.02;
+            z-index: 100;
+        }
+
+        /* Contenedor principal */
+        .main-container {
+            width: 100%;
+            max-width: 450px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* --- NUEVA CABECERA --- */
+        .main-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center; /* Esto centra verticalmente todos los elementos */
+            width: 100%;
+            margin-bottom: 1rem; /* Espacio entre header y slogan */
+            gap: 10px; /* Espacio entre los logos y el botón */
+        }
+
+        /* Logo en la cabecera (más pequeño) */
+        .header-logo {
+            width: 70px; /* Tamaño reducido */
+            height: 70px;
+            object-fit: contain; 
+            flex-shrink: 0; /* Evita que el logo pequeño se encoja */
+        }
+
+        /* --- CLASE AJUSTADA PARA EL LOGO DE DIVERSAS --- */
+        .logo-diversas {
+            width: 140px;  /* Ajustado para mantener proporción 2:1 */
+            height: 70px; /* Igualado al .header-logo para alineación perfecta */
+            object-fit: contain;
+            flex-shrink: 1; /* Permite que se encoja si es necesario */
+            margin: 0 auto; /* Lo centra en el espacio sobrante */
+        }
+
+
+        /* --- BOTÓN MENÚ HAMBURGUESA --- */
+        .hamburger-icon {
+            width: 40px;
+            height: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 0;
+            z-index: 1001; /* Encima del overlay */
+            position: relative;
+            flex-shrink: 0; /* Evita que el botón se encoja */
+        }
+
+        .hamburger-icon .bar {
+            width: 100%;
+            height: 6px; /* Bandas gruesas */
+            background-color: #f0f0f0; /* Color blanco/gris */
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+        
+        /* Animación del botón hamburguesa a 'X' */
+        body.menu-open .hamburger-icon .bar:nth-child(1) {
+            transform: translateY(12px) rotate(45deg);
+        }
+        body.menu-open .hamburger-icon .bar:nth-child(2) {
+            opacity: 0;
+        }
+        body.menu-open .hamburger-icon .bar:nth-child(3) {
+            transform: translateY(-12px) rotate(-45deg);
+        }
+
+        /* --- MENÚ OVERLAY (pantalla completa) --- */
+        #overlay-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000; /* Debajo del botón 'X' principal */
+            
+            /* Oculto por defecto (fuera de la pantalla) */
+            transform: translateY(-100%);
+            opacity: 0;
+            visibility: hidden;
+            transition: transform 0.5s ease, opacity 0.5s ease, visibility 0.5s;
+        }
+
+        body.menu-open #overlay-menu {
+            transform: translateY(0);
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Enlaces del menú overlay */
+        #overlay-menu nav {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        #overlay-menu .menu-link {
+            font-family: var(--font-family);
+            font-size: 2.25rem; /* 36px */
+            font-weight: 700;
+            color: #f0f0f0;
+            text-decoration: none;
+            margin: 1.5rem 0;
+            transition: color 0.3s ease;
+        }
+
+        #overlay-menu .menu-link:hover {
+            color: var(--neon-pink);
+            text-shadow: 0 0 10px var(--neon-pink);
+        }
+
+        /* Logo pequeño al pie del menú */
+        #overlay-menu .menu-footer-logo {
+            position: absolute;
+            bottom: 2rem;
+            width: 80px;
+            height: 80px;
+            opacity: 0.5;
+        }
+
+        /* --- NUEVO BOTÓN 'X' DE CIERRE EN EL MENÚ --- */
+        #close-menu-btn {
+            position: absolute;
+            bottom: 2rem; /* A la misma altura que el logo del footer */
+            right: 1.5rem; /* Margen derecho */
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem; /* Tamaño de la X */
+            font-weight: 700;
+            color: #fff;
+            background: none;
+            border: 2px solid #fff; /* Borde blanco sutil */
+            border-radius: 50%; /* Circular */
+            width: 50px; /* Ancho del círculo */
+            height: 50px; /* Alto del círculo */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 1002; /* Para asegurar que esté encima de todo en el menú */
+            box-shadow: 0 0 8px rgba(255, 255, 255, 0.5); /* Sutil brillo */
+        }
+
+        #close-menu-btn:hover {
+            background-color: #fff;
+            color: #000;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+        }
+
+        /* Slogan (sin cambios, solo para referencia) */
+        .slogan {
+            font-weight: 300;
+            font-size: 1.060rem;
+            line-height: 1.6;
+        }
+
+        /* --- BOTONES NEÓN (sin cambios) --- */
+        .btn-neon {
+            display: block;
+            width: 100%;
+            padding: 1.25rem;
+            margin-bottom: 1.5rem;
+            border: 2px solid var(--color-neon);
+            color: var(--color-neon);
+            background-color: rgba(10, 10, 10, 0.3);
+            border-radius: 0.75rem;
+            text-align: center;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            backdrop-filter: blur(2px);
+            box-shadow: 0 0 5px var(--color-neon), 
+                        0 0 10px var(--color-neon) inset;
+        }
+
+        .btn-neon:hover {
+            background-color: var(--color-neon);
+            color: #000000;
+            box-shadow: 0 0 15px var(--color-neon), 
+                        0 0 30px var(--color-neon);
+        }
+
+        .btn-pink { --color-neon: var(--neon-pink); }
+        .btn-red { --color-neon: var(--neon-red); }
+        .btn-blue { --color-neon: var(--neon-blue); }
+        .btn-green { --color-neon: var(--neon-green); }
+        .btn-purple { --color-neon: var(--neon-purple); }
+
+        .btn-red {
+            animation: pulse-red 2s infinite ease-in-out;
+        }
+
+        @keyframes pulse-red {
+            0% { box-shadow: 0 0 5px var(--color-neon), 0 0 10px var(--color-neon) inset; transform: scale(1); }
+            50% { box-shadow: 0 0 15px var(--color-neon), 0 0 25px var(--color-neon) inset, 0 0 25px var(--color-neon); transform: scale(1.02); }
+            100% { box-shadow: 0 0 5px var(--color-neon), 0 0 10px var(--color-neon) inset; transform: scale(1); }
+        }
+
+        .btn-text { font-size: 1.125rem; line-height: 1.2; }
+        .btn-subtext { font-size: 0.8rem; font-weight: 300; text-transform: none; opacity: 0.8; display: block; margin-top: 6px; }
+
+    </style>
+</head>
+<body class="bg-black">
+
+    <!-- --- MENÚ OVERLAY (Oculto por defecto) --- -->
+    <div id="overlay-menu">
+        <nav>
+            <a href="quienes-somos.html" class="menu-link">Quiénes Somos</a>
+            <a href="#" class="menu-link">Misión y Visión</a>
+            <a href="#" class="menu-link">Prensa</a>
+            <a href="#" class="menu-link">Contacto</a>
+        </nav>
+        
+        <img src="https://raw.githubusercontent.com/extresado/App_apoyo_chemsex/main/1000025194.png" alt="Logo BajadaSegura" class="menu-footer-logo">
+
+        <!-- NUEVO BOTÓN 'X' PARA CERRAR EL MENÚ -->
+        <button id="close-menu-btn" aria-label="Cerrar menú">X</button>
+    </div>
+
+
+    <!-- --- CONTENIDO PRINCIPAL --- -->
+    <div class="main-container">
+        
+        <!-- Nueva cabecera flexible -->
+        <header class="main-header">
+            <!-- Logo a la izquierda -->
+            <img src="https://raw.githubusercontent.com/extresado/App_apoyo_chemsex/main/1000025194.png" alt="Logo BajadaSegura" class="header-logo">
+            
+            <!-- Imagen Diversas (Clase modificada) -->
+            <img src="diversas.png" alt="Logo Diversas Canarias" class="logo-diversas">
+
+            <!-- Botón Hamburguesa a la derecha -->
+            <button id="menu-btn" class="hamburger-icon" aria-label="Abrir menú">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </header>
+
+        <!-- Slogan (centrado) -->
+        <p class="slogan text-center text-gray-200 mt-2 mb-6">
+            Estás acompañado. Hablemos de chemsex sin juicios.
+        </p>
+
+        <!-- Botones de navegación principal (sin cambios) -->
+        <nav class="flex flex-col items-center">
+            
+            <a href="formulario.html" class="btn-neon btn-pink">
+                <span class="btn-text">¿DÓNDE ESTÁS?</span>
+                <span class="btn-subtext">(Inicia aquí tu autoevaluación)</span>
+            </a>
+            
+            <a href="ayuda.html" class="btn-neon btn-red"> 
+                <span class="btn-text">🆘 AYUDA URGENTE</span>
+                <span class="btn-subtext">(Sobredosis / Psicosis / Agresión)</span>
+            </a>
+
+            <a href="sustancias.html" class="btn-neon btn-blue">
+                <span class="btn-text">INFO SUSTANCIAS</span>
+                <span class="btn-subtext">(Reducción de daños / Mezclas)</span>
+            </a>
+
+            <a href="chat.html" class="btn-neon btn-purple">
+                <span class="btn-text">NECESITO HABLAR</span>
+                <span class="btn-subtext">(Conecta con @bajadasegura)</span>
+            </a>
+
+        </nav>
+
+    </div>
+
+    <!-- --- SCRIPT PARA EL MENÚ (ACTUALIZADO) --- -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuBtn = document.getElementById('menu-btn'); // Botón hamburguesa
+            const closeMenuBtn = document.getElementById('close-menu-btn'); // Nuevo botón 'X'
+            const menuLinks = document.querySelectorAll('#overlay-menu .menu-link'); // Enlaces del menú
+
+            // Función para abrir/cerrar el menú
+            function toggleMenu() {
+                document.body.classList.toggle('menu-open');
+            }
+
+            // Función para cerrar el menú (si está abierto)
+            function closeMenu() {
+                document.body.classList.remove('menu-open');
+            }
+
+            // El botón de hamburguesa/X abre y cierra
+            menuBtn.addEventListener('click', toggleMenu);
+
+            // El nuevo botón 'X' de cierre explícito
+            closeMenuBtn.addEventListener('click', closeMenu);
+
+            // CUALQUIER enlace del menú también lo cierra
+            menuLinks.forEach(link => {
+                link.addEventListener('click', closeMenu);
+            });
+        });
+    </script>
+
+</body>
+</html>
+
